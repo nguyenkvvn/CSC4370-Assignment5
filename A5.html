@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>A5.html</title>
+
+<script>
+	function buttonAdd()
+	{
+		//upon clicking the Add button, a JavaScript will be called that checks that all fields have been populated. Two things will happen of a field is missing values: one alert box will pop up indicating which fields are missing. Red text will appear above the fields that are missing values.
+		
+		if (document.f_SubmissionForm.ID.value == '')
+		{
+			//show red status message
+			document.getElementById("status_ID").innerHTML = "Please enter an ID.";
+		}
+		else
+		{
+			document.getElementById("status_ID").innerHTML = "";
+		}
+		
+		if (document.f_SubmissionForm.FirstName.value == '')
+		{
+			//show red status message
+			document.getElementById("status_FirstName").innerHTML = "Please enter a first name.";
+		}
+		else
+		{
+			document.getElementById("status_FirstName").innerHTML = "";
+		}
+		
+		if (document.f_SubmissionForm.LastName.value == '')
+		{
+			//show red status message
+			document.getElementById("status_LastName").innerHTML = "Please enter a last name.";
+		}
+		else
+		{
+			document.getElementById("status_LastName").innerHTML = "";
+		}
+		
+		//Output
+		if (document.f_SubmissionForm.ID.value != '' && document.f_SubmissionForm.FirstName.value != '' && document.f_SubmissionForm.LastName.value != '')
+		{
+			document.getElementById("output_o").innerHTML = "UserID: " + document.f_SubmissionForm.ID.value +
+			"<br>First Name: " + document.f_SubmissionForm.FirstName.value +
+			"<br>Last Name: " + document.f_SubmissionForm.LastName.value;
+			
+			document.f_SubmissionForm.ID.value = '';
+			document.f_SubmissionForm.FirstName.value = '';
+			document.f_SubmissionForm.LastName.value = '';
+			
+		}
+		
+	}
+</script>
+	
+<link href="A5.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+	<!--Create a form with text fields for ID, FirstName, and LastName. Then a button called "Add". -->
+	<form name = "f_SubmissionForm">
+		
+		<div id = "status_ID"></div>
+		ID: <input type = "text" name = "ID" size = "10">
+		
+		<br><br><div id = "status_FirstName"></div>
+		First Name: <input type = "text" name = "FirstName" size = "10">
+		
+		<br><br><div id = "status_LastName"></div>
+		Last Name: <input type = "text" name = "LastName" size = "10">
+		
+		<br><br><input type="button" value = " Add " onclick="buttonAdd()">
+		
+	</form>
+	
+	<br><div id = "output_o"></div>
+</body>
+</html>
